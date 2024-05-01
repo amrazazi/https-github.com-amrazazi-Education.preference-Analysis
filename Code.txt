@@ -1,0 +1,25 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+data = pd.read_csv("Education preference .csv")  
+
+
+reason_for_coffee = data["Do you prefer to universities education "]
+
+
+reason_counts = reason_for_coffee.value_counts()
+
+
+pie_chart_slice_labels = reason_counts.index.to_numpy() 
+pie_chart_slice_values = reason_counts.to_numpy()
+
+
+plt.figure(figsize=(8, 8))
+plt.pie(pie_chart_slice_values, labels=pie_chart_slice_labels, autopct="%1.1f%%", startangle=140)
+
+plt.title("Preference of university education")
+
+plt.tight_layout()
+plt.show()
